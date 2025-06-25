@@ -2,22 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Set up virtual env') {
+        stage('Install dependencies') {
             steps {
-                sh '''
-                    python3 -m venv venv
-                    source venv/bin/activate
-                    pip install -r requirements.txt
-                '''
+                sh 'python3 -m venv venv'
+                sh 'source venv/bin/activate && pip install -r requirements.txt'
             }
         }
 
-        stage('Run Behave Tests') {
+        stage('Run Behave tests') {
             steps {
-                sh '''
-                    source venv/bin/activate
-                    behave
-                '''
+                sh 'source venv/bin/activate && behave'
             }
         }
     }
