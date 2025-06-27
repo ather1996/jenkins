@@ -21,12 +21,11 @@ def step_impl(context):
     context.driver.find_element(By.ID, "username").send_keys('student')
     context.driver.find_element(By.ID, "password").send_keys('Password123')
     context.driver.find_element(By.ID, "submit").click()
-    context.driver.find_element(By.ID, "username")
     time.sleep(3)  # Reduce for stability
 
 
 @then('clicks on logout')
 def step_impl(context):
     context.driver.find_element(By.XPATH, '//*[@id="loop-container"]/div/article/div[2]/div/div/div/a').click()
-    time.sleep(2)
+    time.sleep(6)
     context.driver.quit()
