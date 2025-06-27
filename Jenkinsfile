@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        githubPush() // 👈 Forces build on every push
+    }
+
     tools {
         python 'Python3'
     }
