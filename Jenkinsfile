@@ -1,12 +1,8 @@
 pipeline {
     agent any
 
-    tools {
-        python 'Python3'
-    }
-
     triggers {
-        githubPush() // 👈 Add this to force Jenkins to trigger on every GitHub push
+        githubPush() // Auto-trigger on every push
     }
 
     stages {
