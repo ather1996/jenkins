@@ -1,3 +1,5 @@
+from fileinput import close
+
 from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -27,5 +29,7 @@ def step_impl(context):
 @then('clicks on logout')
 def step_impl(context):
     context.driver.find_element(By.XPATH, '//*[@id="loop-container"]/div/article/div[2]/div/div/div/a').click()
-    time.sleep(6)
+    time.sleep(20)
     context.driver.quit()
+
+
