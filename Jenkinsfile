@@ -1,19 +1,28 @@
 pipeline {
     agent any
 
+    tools {
+        python 'Python3'
+    }
+
     stages {
         stage('Install dependencies') {
             steps {
-                sh 'python3 -m venv venv'
-                sh 'source venv/bin/activate && pip install -r requirements.txt'
+                bat '''
+                    python -m venv venv
+                    call venv\\Scripts\\activate.bat
+                    pip install -r requirements.txt
+                '''
             }
         }
 
-        stage('Run Behave tests') {
+        stage('Run Tests') {
             steps {
-                sh 'source venv/bin/activate && behave'
+                bat '''
+                    call venv\\Scripts\\activate.bat
+                    behave
+                '''
             }
         }
     }
 }
-
