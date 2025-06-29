@@ -28,8 +28,9 @@ def step_impl(context):
 
 @then('clicks on logout')
 def step_impl(context):
-    context.driver.find_element(By.XPATH, '//*[@id="loop-container"]/div/article/div[2]/div/div/div/a').click()
-    time.sleep(25)
+    web_element = context.driver.find_element(By.XPATH, '//*[@id="loop-container"]/div/article/div[2]/div/div/div/a').click()
+    web_element.click()
+    time.sleep(40)
     context.driver.quit()
 
 
